@@ -1,0 +1,27 @@
+#!/bin/bash
+# PORTAGE ENVIRONMENT VARIABLES
+PORTAGE=/etc/portage/
+PORTAGE_USE=$PORTAGE"package.use/"
+PORTAGE_KEYWORDS=$PORTAGE"package.accept_keywords/"
+PORTAGE_LICENSE=$PORTAGE"package.license/"
+PORTAGE_MAKE_CONF=$PORTAGE/make.conf
+
+# KERNEL ENVIRONMENT VARIABLES
+KERNEL=/usr/src/linux/
+KERNEL_CONFIG=$KERNEL/.config
+
+# COPY MAKE.CONF
+cp -f $PORTAGE_MAKE_CONF ./portage/make.conf
+cp -f $KERNEL_CONFIG ./kernel/$(uname -r).config
+
+for file in $PORTAGE_USE*; do
+				cp -f $file ./portage/package.use/
+done
+
+for file in $PORTAGE_KEYWORDS*; do
+				cp -f $file ./portage/package.accept_keywords/
+done
+
+for file in $PORTAGE_LICENSE*; do
+				cp -f $file ./portage/package.license/
+done

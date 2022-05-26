@@ -11,17 +11,18 @@ KERNEL=/usr/src/linux/
 KERNEL_CONFIG=$KERNEL/.config
 
 # COPY MAKE.CONF
-cp -f $PORTAGE_MAKE_CONF ./portage/make.conf
-cp -f $KERNEL_CONFIG ./kernel/$(uname -r).config
+cp -vf $PORTAGE_MAKE_CONF ./portage/make.conf
+rm -fv ./kernel/*.config
+cp -vf $KERNEL_CONFIG ./kernel/$(uname -r).config
 
 for file in $PORTAGE_USE*; do
-				cp -f $file ./portage/package.use/
+				cp -vf $file ./portage/package.use/
 done
 
 for file in $PORTAGE_KEYWORDS*; do
-				cp -f $file ./portage/package.accept_keywords/
+				cp -vf $file ./portage/package.accept_keywords/
 done
 
 for file in $PORTAGE_LICENSE*; do
-				cp -f $file ./portage/package.license/
+				cp -vf $file ./portage/package.license/
 done

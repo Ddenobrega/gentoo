@@ -1,9 +1,7 @@
-
- Box Configuration
-
+# GENTOO 
 This repository is available to the public but <b> NOT </b>intended for public use.
 
-## What's Included
+## Included Modules
 
 - <a href="./kernel/">My Kernel Configuration</a>.
 - <a href="./dwm">Desktop Environment</a>.
@@ -18,7 +16,7 @@ My Kernel was configured with minimalism considered and will NOT work on setups 
 
 ### Kernel support List
 
-#### <a href="./kernel/g752vl_kernel.config">G752VL_Kernel.config</a>
+#### <a href="./kernel/">.config</a>
 
 - Intel Skylake (Atom or Newer) support.
 - Intel Microcode loading support.
@@ -32,7 +30,7 @@ My Kernel was configured with minimalism considered and will NOT work on setups 
 - Lvm and Luks support.
 - OpenRc support.
 
-### <a href="./kernel/compile">Kernel Compilation Script</a>
+### <a href="./kernel/scripts/compile-kernel">Kernel Compilation Script</a>
 
 - Compiles Kernel.
   - 6 Jobs (12gb+ ram and at least six threads recommended).

@@ -4,10 +4,8 @@ This repository is available to the public but <b> NOT </b>intended for public u
 ## Included Modules
 
 - <a href="./kernel/">My Kernel Configuration</a>.
-- <a href="./dwm">Desktop Environment</a>.
-- <a href="./st">Terminal Source Code</a>.
 - <a href="./portage/make.conf">Portage Configuaration</a>.
-- <a href="./kernel/compile">Custom Kernel Compile Script</a>.
+- <a href="./kernel/scripts/compile-kernel">Custom Kernel Compile Script</a>.
 - <a href="./picom/picom.conf">Compositor Configuration</a>.
 
 ## Kernel

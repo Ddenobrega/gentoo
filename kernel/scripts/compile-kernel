@@ -1,0 +1,53 @@
+#!/bin/bash
+
+#CONFIGURATION OPTIONS
+KERNEL_DIR=/usr/src/linux
+MAKE_OPTS=-j6
+INITRAMFS_OPTIONS="--lvm --luks --install --compress-initramfs-type=zstd"
+GRUB_CONFIG_DIR=/boot/grub/grub.cfg
+NVIDIA=1
+
+
+GREEN="\e[0;32m"
+CYAN="[\e[0;36m"
+NC="\e[m"
+
+function dbg(){
+	echo -e "$GREEN * $1 $NC";
+}
+
+function nv_pr(){
+	emerge @module-rebuild;
+	return 0;
+}
+
+function compile(){
+    	echo -e "$CYAN**Proceeding to compile and install kernel**$NC";
+			dbg "Redirecting to kernel Directory $KERNEL_DIR";
+      cd $KERNEL_DIR;
+			dbg "Compiling the kernel with $MAKE_OPTS Jobs";
+      make $MAKE_OPTS ;
+			dbg "Installing Kernel Modules";
+      make modules_install ;
+			dbg "Installing Kernel Binary to /boot";
+      make install ;
+			dbg "Generating Initramfs with the following options $INITRAMFS_OPTIONS";
+      genkernel $INITRAMFS_OPTIONS initramfs ;
+			if [ "$NVIDIA" -ne 0 ]; then
+				dbg "Compiling and Installing Nvidia Kernel Modules"
+				nv_pr;
+			else
+				echo -e "$CYAN **Compiling Without Nvidia Kernel Module** $NC";
+			fi
+			dbg "Configuring Grub"
+      grub-mkconfig -o $GRUB_CONFIG_DIR;
+			dbg "Complete"
+			return 0;
+}
+
+if [ "$EUID" -ne 0 ]; then
+    echo "Please Run As Root";
+else
+		compile;
+fi
+

@@ -1,4 +1,0 @@
-[submodule "compile"]
-path = kernel/scripts/
-url = https://github.com/ddenobrega/tree/main/scripts/bin/compile-kernel
-

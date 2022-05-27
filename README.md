@@ -39,6 +39,7 @@ My Kernel was configured with minimalism considered and will NOT work on setups 
   - LVM support.
   - Luks support.
   - Zstd Compression.
+	- Rebuilds Kernel Modules supplied by package manager [portage only]
 - Updates grub configuration in /boot.
 
 #### Configuring

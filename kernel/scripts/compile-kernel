@@ -5,7 +5,7 @@ KERNEL_DIR=/usr/src/linux
 MAKE_OPTS=-j6
 INITRAMFS_OPTIONS="--lvm --luks --install --compress-initramfs-type=zstd"
 GRUB_CONFIG_DIR=/boot/grub/grub.cfg
-NVIDIA=1
+PORTAGE=1
 
 
 GREEN="\e[0;32m"
@@ -16,7 +16,7 @@ function dbg(){
 	echo -e "$GREEN * $1 $NC";
 }
 
-function nv_pr(){
+function p_mod(){
 	emerge @module-rebuild;
 	return 0;
 }
@@ -33,11 +33,11 @@ function compile(){
       make install ;
 			dbg "Generating Initramfs with the following options $INITRAMFS_OPTIONS";
       genkernel $INITRAMFS_OPTIONS initramfs ;
-			if [ "$NVIDIA" -ne 0 ]; then
-				dbg "Compiling and Installing Nvidia Kernel Modules"
-				nv_pr;
+			if [ "$PORTAGE" -ne 0 ]; then
+				dbg "Compiling and Installing Portage Kernel Modules"
+				p_mod;
 			else
-				echo -e "$CYAN **Compiling Without Nvidia Kernel Module** $NC";
+				echo -e "$CYAN **Compiling Without Package Manager supplied Kernel Module** $NC";
 			fi
 			dbg "Configuring Grub"
       grub-mkconfig -o $GRUB_CONFIG_DIR;

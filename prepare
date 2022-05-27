@@ -5,6 +5,7 @@ PORTAGE_USE=$PORTAGE"package.use/"
 PORTAGE_KEYWORDS=$PORTAGE"package.accept_keywords/"
 PORTAGE_LICENSE=$PORTAGE"package.license/"
 PORTAGE_MAKE_CONF=$PORTAGE/make.conf
+XSERVER_CONF=$HOME/.xinitrc
 
 # KERNEL ENVIRONMENT VARIABLES
 KERNEL=/usr/src/linux/
@@ -12,6 +13,7 @@ KERNEL_CONFIG=$KERNEL/.config
 
 # COPY MAKE.CONF
 cp -vf $PORTAGE_MAKE_CONF ./portage/make.conf
+cp -vf $XSERVER_CONF ./Xserver/xinitrc
 rm -fv ./kernel/*.config
 cp -vf $KERNEL_CONFIG ./kernel/$(uname -r).config
 

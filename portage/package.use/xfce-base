@@ -251,3 +251,6 @@ xfce-base/thunar exif udisks
 # required by app-emulation/wine-staging-7.9::gentoo[opengl]
 # required by wine-staging (argument)
 >=sys-libs/ncurses-6.3_p20220423 abi_x86_32
+# required by net-wireless/blueman-2.2.3-r2::gentoo[pulseaudio]
+# required by blueman (argument)
+>=media-sound/pulseaudio-15.0-r3 bluetooth

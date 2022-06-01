@@ -1,4 +1,5 @@
 www-client/firefox hardened geckodriver wifi
+www-client/librewolf hardened geckodriver wifi
 # required by www-client/firefox-91.9.0::gentoo[system-libvpx]
 # required by firefox (argument)
 >=media-libs/libvpx-1.11.0 postproc

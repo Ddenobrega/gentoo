@@ -3,9 +3,9 @@ wmname "LG3D" &
 # export _JAVA_AWT_WM_NONREPARENTING=1
 eval $(gnome-keyring-daemon --start) &
 export SSH_AUTH_SOCK &
-xset -dpms &
 exec slstatus &
 exec /usr/libexec/polkit-gnome-authentication-agent-1 &
 exec nm-applet &
 exec picom &
+xset -dpms 
 exec dbus-launch --sh-syntax --exit-with-session dwm

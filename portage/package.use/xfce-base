@@ -254,3 +254,6 @@ xfce-base/thunar exif udisks
 # required by net-wireless/blueman-2.2.3-r2::gentoo[pulseaudio]
 # required by blueman (argument)
 >=media-sound/pulseaudio-15.0-r3 bluetooth
+# required by net-vpn/riseup-vpn-0.21.11::gentoo
+# required by net-vpn/riseup-vpn (argument)
+>=dev-qt/qtquickcontrols2-5.15.3 widgets
